@@ -1,0 +1,52 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Service is already configured",
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication",
+            "reauth_successful": "Re-authentication was successful",
+            "unknown": "Unexpected error"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "cannot_retrieve_data": "Unable to retrieve data from Amazon. Please try again later.",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "flow_title": "{username}",
+        "progress": {
+            "login": "Logging in to your Amazon account. This can take a few minutes."
+        },
+        "step": {
+            "reauth_confirm": {
+                "data": {
+                    "code": "One-time password (OTP code)",
+                    "password": "Password"
+                },
+                "data_description": {
+                    "code": "The one-time password to log in to your account. Currently, only tokens from OTP applications are supported.",
+                    "password": "The password of your Amazon account."
+                }
+            },
+            "user": {
+                "data": {
+                    "code": "One-time password (OTP code)",
+                    "password": "Password",
+                    "username": "Username"
+                },
+                "data_description": {
+                    "code": "The one-time password to log in to your account. Currently, only tokens from OTP applications are supported.",
+                    "password": "The password of your Amazon account.",
+                    "username": "The email address of your Amazon account."
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "last_called": {
+                "name": "Last Called"
+            }
+        }
+    }
+}

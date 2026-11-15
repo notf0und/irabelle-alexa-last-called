@@ -1,0 +1,13 @@
+{
+  "domain": "irabelle_alexa_last_called",
+  "name": "Irabelle Alexa Last Called",
+  "codeowners": ["@notf0und"],
+  "config_flow": true,
+  "documentation": "https://github.com/notf0und/irabelle-alexa-last-called",
+  "integration_type": "hub",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/notf0und/irabelle-alexa-last-called/issues",
+  "loggers": ["aioamazondevices"],
+  "requirements": ["aioamazondevices==16.3.2"],
+  "version": "1.0.0"
+}
