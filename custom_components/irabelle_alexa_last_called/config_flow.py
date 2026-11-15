@@ -20,7 +20,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import aiohttp_client
 import homeassistant.helpers.config_validation as cv
 
-from .const import CONF_LOGIN_DATA, DOMAIN
+from .const import CONF_LOGIN_DATA, DOMAIN, LOGGER
 
 STEP_USER_DATA_SCHEMA = vol.Schema(
     {
@@ -91,6 +91,9 @@ class AlexaLastCalledConfigFlow(ConfigFlow, domain=DOMAIN):
                 self._login_errors = {"base": "invalid_auth"}
             except CannotRetrieveData:
                 self._login_errors = {"base": "cannot_retrieve_data"}
+            except Exception:  # noqa: BLE001 - never leave the progress dialog hanging
+                LOGGER.exception("Unexpected error while logging in to Amazon")
+                self._login_errors = {"base": "unknown"}
             finally:
                 self._login_task = None
 
@@ -148,6 +151,9 @@ class AlexaLastCalledConfigFlow(ConfigFlow, domain=DOMAIN):
                 errors["base"] = "invalid_auth"
             except CannotRetrieveData:
                 errors["base"] = "cannot_retrieve_data"
+            except Exception:  # noqa: BLE001
+                LOGGER.exception("Unexpected error while logging in to Amazon")
+                errors["base"] = "unknown"
             else:
                 return self.async_update_reload_and_abort(
                     reauth_entry,
